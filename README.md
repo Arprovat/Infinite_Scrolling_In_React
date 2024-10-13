@@ -1,8 +1,31 @@
-# React + Vite
+## Understanding Window and Document Height in JavaScript for Infinite scrolling in react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Window Inner Height (`window.innerHeight`)
 
-Currently, two official plugins are available:
+* **Definition:** Returns the height of the browser window's viewport in pixels.
+* **Purpose:** Represents the visible area of the webpage within the browser window.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Document Scroll Properties
+
+* **`document.documentElement.scrollTop`:**
+  - Returns the number of pixels the document has been scrolled vertically.
+  - Indicates the current position of the viewport within the document.
+* **`document.documentElement.scrollHeight`:**
+  - Returns the total height of the entire document in pixels.
+  - Includes the height of content that may extend beyond the viewport.
+
+### Relationship Between Window and Document Heights
+
+* **`window.innerHeight`** is the height of the viewport.
+* **`document.documentElement.scrollTop`** is the number of pixels scrolled.
+* **`document.documentElement.scrollHeight`** is the total document height.
+
+### Example Usage
+
+
+// Check if the user has scrolled to the bottom of the page
+
+
+if (scrollPosition + viewportHeight+1 >= documentHeight) {
+  console.log("Reached the bottom of the page!");
+}
